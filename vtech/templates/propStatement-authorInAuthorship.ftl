@@ -134,10 +134,6 @@
     <#if statement.pubid??>
       <a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=${statement.pubid!}" target="_blank" class="pubid">PubMed</a> &nbsp;
     </#if>
-    <!-- ADDED CODE for OCLC link after Publication -->
-    <#if statement.oclcid??>
-      <a href="http://hdl.handle.net/${statement.oclcid!}" target="_blank" class="oclcid">OCLC</a> &nbsp;
-    </#if>
     <!-- ADDED CODE for handle link after Publication -->
     <#if statement.handleid??>
       <a href="http://hdl.handle.net/${statement.handleid!}" target="_blank" class="handleid">Open Access</a> &nbsp;

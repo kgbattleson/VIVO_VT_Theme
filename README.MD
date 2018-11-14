@@ -13,13 +13,15 @@ $ tar -zcvf VIVO_VT_Theme.tar.gz VIVO_VT_Theme
 * Step3: Upload VTech theme files
 ```
 $ vagrant ssh
-$ cd /var/lib/tomcat7/webapps/vivo/themes
 $ sudo /etc/init.d/tomcat7 stop
+$ cd /var/lib/tomcat7/webapps/vivo/themes/
 $ rm -rf *
-$ tar -zxvf VIVO_VT_Theme.tar.gz
-$ mv VIVO_VT_Theme/* .
 $ cd ..
+$ tar -zxvf VIVO_VT_Theme.tar.gz
+$ mv VIVO_VT_Theme/themes/* themes/.
 $ chown -R vagrant:tomcat7 themes/* 
+$ cp VIVO_VT_Theme/templates/freemarker/lib/lib-home-page.ftl templates/freemarker/lib/.
+$ chown -R vagrant:tomcat7 templates/freemarker/lib/*
 $ sudo /etc/init.d/tomcat7 start
 ```
 * Step4: Apply VTech theme

@@ -5,12 +5,12 @@ $ git clone -b gui-developer-v1.9.3 https://github.com/vivo-community/vivo-vagra
 $ cd vivo-vagrant
 $ vagrant up
 ```
-* Step2: download VTech themes files
+* Step2: Download VIVO_VT_Theme files and compress it
 ```
 $ git clone git@github.com:VTUL/VIVO_VT_Theme.git
 $ tar -zcvf VIVO_VT_Theme.tar.gz VIVO_VT_Theme
 ```
-* Step3: Upload VTech theme files
+* Step3: Apply VTech theme files and lib files
 ```
 $ vagrant ssh
 $ sudo /etc/init.d/tomcat7 stop
@@ -22,6 +22,8 @@ $ mv VIVO_VT_Theme/themes/* themes/.
 $ chown -R vagrant:tomcat7 themes/* 
 $ cp VIVO_VT_Theme/templates/freemarker/lib/lib-home-page.ftl templates/freemarker/lib/.
 $ chown -R vagrant:tomcat7 templates/freemarker/lib/*
+$ cp VIVO_VT_Theme/rdf/display/everytime/*.n3 /usr/local/vivo/vdata/rdf/display/everytime/.
+$ chown -R vagrant:tomcat7 /usr/local/vivo/vdata/rdf/display/everytime/*.n3
 $ sudo /etc/init.d/tomcat7 start
 ```
 * Step4: Apply VTech theme
@@ -29,6 +31,7 @@ $ sudo /etc/init.d/tomcat7 start
 1. Login: http://localhost:8080/vivo/siteAdmin
 2. Select "Site information" -> "Theme", select "vtech"
 3. Click "Save changes"
+4. Select "Site Maintenance" -> "Rebuild search index" -> "Rebuild"
 ```
 You will see something like this below:
 ![VTech VIVO](vivo_home.png)
